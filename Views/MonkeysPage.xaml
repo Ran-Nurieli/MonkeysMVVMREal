@@ -12,6 +12,7 @@
 
         <StackLayout>
             <Button Command="{Binding LoadMonkeysCommand}" Text="Load Monkey" />
+            <Button Command="{Binding NavigateToHomePage}" />
             <RefreshView Command="{Binding LoadMonkeysCommand}" IsRefreshing="{Binding IsRefreshing}">
                 <CollectionView
                     EmptyView="No Monkeys"
