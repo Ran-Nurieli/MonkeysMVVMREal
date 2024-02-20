@@ -12,9 +12,15 @@ using System.Windows.Input;
 
 namespace MonkeysMVVM.ViewModels
 {
-    public class ShowMonkeyViewModel:ViewModel
+    [QueryProperty(nameof(Monkey), "Monkey")]
+    [QueryProperty(nameof(Title), "Title")]
+    public class ShowMonkeyViewModel : ViewModel
     {
-        Monkey monkey;
+        private Monkey monkey;
+        public Monkey Monkey { get => monkey; set { monkey = value; OnPropertyChanged(); } }
+        private string title;
+        public string Title { get => title; set { title = value; OnPropertyChanged(); } }
+
         public ICommand ShowMonkeyCommand { get; set; }
         public ICommand ShowMonkeyImage { get; set; }   
         private string name;

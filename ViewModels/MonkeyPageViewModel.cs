@@ -33,11 +33,13 @@ namespace MonkeysMVVM.ViewModels
         {
             Dictionary<string,object> dic = new Dictionary<string,object>();
             dic.Add("Monkey", SelectedMonkey);
-            await AppShell.Current.GoToAsync("ShowMonkey");
+            await AppShell.Current.GoToAsync("ShowMonkey",dic);
+            SelectedMonkey = null;
+
            
         }
 
-
+       
 
 
         private async Task LoadMonkeys()

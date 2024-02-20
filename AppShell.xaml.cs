@@ -6,9 +6,10 @@ public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-		InitializeComponent();
+        InitializeComponent();
         Routing.RegisterRoute("HomePage", typeof(MonkeysPage));
         Routing.RegisterRoute("ShowMonkey", typeof(ShowMonkeyView));
-        Routing.RegisterRoute("FindMonkey", typeof(FindMonkeyByLocationPage));
+
+
     }
 }
