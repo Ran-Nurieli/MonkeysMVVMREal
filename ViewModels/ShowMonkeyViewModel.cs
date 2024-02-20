@@ -10,26 +10,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace MonkeysMVVM.ViewModels
 {
     [QueryProperty(nameof(Monkey), "Monkey")]
-    [QueryProperty(nameof(Title), "Title")]
     public class ShowMonkeyViewModel : ViewModel
     {
-        private Monkey monkey;
-        public Monkey Monkey { get => monkey; set { monkey = value; OnPropertyChanged(); } }
-        private string title;
-        public string Title { get => title; set { title = value; OnPropertyChanged(); } }
-
+        Monkey monkey;
+        public Monkey Monkey{ get {return monkey; } set{monkey = value; GetMonkey(); } }
         public ICommand ShowMonkeyCommand { get; set; }
         public ICommand ShowMonkeyImage { get; set; }   
         private string name;
-        public string Name 
-        { 
-            get { return this.name; } 
+        public string Name
+        { //this.name
+            get { return name; } 
             set
             {
                 this.name = value;
+               
                 OnPropertyChanged();
             } 
         }
@@ -39,6 +37,7 @@ namespace MonkeysMVVM.ViewModels
             get { return this.location; }
             set
             {
+               
                 this.location = value;
                 OnPropertyChanged();
             }
@@ -47,10 +46,12 @@ namespace MonkeysMVVM.ViewModels
         private string imageUrl;
         public string ImageUrl
         {
+            //this.imageUrl
             get { return this.imageUrl; }
             set
             {
                 this.imageUrl = value;
+               
                 OnPropertyChanged();
             }
         }
@@ -63,12 +64,13 @@ namespace MonkeysMVVM.ViewModels
 
         private void GetMonkey()
         {
-            MonkeysService service = new MonkeysService();
-            monkey = service.GetRandomMonkey();
-            if (monkey != null)
+            //MonkeysService service = new MonkeysService();
+            //monkey = service.GetRandomMonkey();
+            if (Monkey != null)
             {
-                Name=monkey.Name;
-                Location=monkey.Location;
+                Name=Monkey.Name;
+                Location=Monkey.Location;
+                ImageUrl=Monkey.ImageUrl;
             }
             //check if the command can work now
                 ((Command)ShowMonkeyImage).ChangeCanExecute();
@@ -76,8 +78,8 @@ namespace MonkeysMVVM.ViewModels
 
         private void ShowImage()
         {
-            if (monkey != null)
-                ImageUrl=monkey.ImageUrl;   
+            if (Monkey != null)
+                ImageUrl=Monkey.ImageUrl;   
 
 
         }

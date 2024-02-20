@@ -6,10 +6,10 @@ public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-        InitializeComponent();
-        Routing.RegisterRoute("HomePage", typeof(MonkeysPage));
+		InitializeComponent();
         Routing.RegisterRoute("ShowMonkey", typeof(ShowMonkeyView));
-
+        Routing.RegisterRoute("FindByLocation", typeof(FindMonkeyByLocationPage));
+        Routing.RegisterRoute("MonkeysPage", typeof(MonkeysPage));
 
     }
 }
