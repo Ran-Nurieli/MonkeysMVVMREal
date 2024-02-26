@@ -11,4 +11,14 @@
         ContentTemplate="{DataTemplate local:MonkeysPage}"
         Route="MainPage" />
 
+    <TabBar Shell.TabBarBackgroundColor="Green">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MonkeysPage}"
+            Icon="home.png"
+            Route="HomePage" />
+        <Tab Icon="search.png">
+            <ShellContent Title="סינון" ContentTemplate="{DataTemplate local:MonkeysPage}" />
+        </Tab>
+
+    </TabBar>
 </Shell>

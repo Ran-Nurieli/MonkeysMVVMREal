@@ -1,5 +1,6 @@
 ﻿namespace MonkeysMVVM;
 
+
 public partial class MainPage : ContentPage
 {
 	int count = 0;
@@ -7,6 +8,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)

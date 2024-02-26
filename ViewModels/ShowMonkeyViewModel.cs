@@ -17,6 +17,7 @@ namespace MonkeysMVVM.ViewModels
     public class ShowMonkeyViewModel : ViewModel
     {
         Monkey monkey;
+        private MonkeysService monkeysService;
         public Monkey Monkey{ get {return monkey; } set{monkey = value; GetMonkey(); } }
         public ICommand ShowMonkeyCommand { get; set; }
         public ICommand ShowMonkeyImage { get; set; }   
@@ -55,8 +56,9 @@ namespace MonkeysMVVM.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ShowMonkeyViewModel()
+        public ShowMonkeyViewModel(MonkeysService monkeysService)
         {
+            this.monkeysService = monkeysService;
             ShowMonkeyCommand = new Command(GetMonkey);
             ShowMonkeyImage = new Command(ShowImage,()=>monkey!=null);//new Command(()=>{if (monkey != null)ImageUrl = monkey.ImageUrl;)}
 

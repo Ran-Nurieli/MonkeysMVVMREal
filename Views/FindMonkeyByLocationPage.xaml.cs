@@ -4,9 +4,9 @@ namespace MonkeysMVVM.Views;
 
 public partial class FindMonkeyByLocationPage : ContentPage
 {
-	public FindMonkeyByLocationPage()
+	public FindMonkeyByLocationPage(FindMonkeyByLocationPage vm)
 	{
 		InitializeComponent();
-		this.BindingContext = new FindMonkeyByLocationPageViewModel();
+		this.BindingContext = vm;
 	}
 }

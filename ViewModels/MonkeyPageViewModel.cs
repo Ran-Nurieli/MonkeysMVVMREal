@@ -14,7 +14,7 @@ namespace MonkeysMVVM.ViewModels
     public class MonkeyPageViewModel:ViewModel
     {
 
-       
+        private MonkeysService monkeysService;
        public Monkey SelectedMonkey { get ; set; }
         public ICommand NavigateMonkeysView { get; private set; }
         public ObservableCollection<Monkey> Monkeys { get; set; }
@@ -24,8 +24,9 @@ namespace MonkeysMVVM.ViewModels
 
         private bool isRefreshing;
         public bool IsRefreshing { get => isRefreshing; set { isRefreshing = value; OnPropertyChanged(); } }
-        public MonkeyPageViewModel()
+        public MonkeyPageViewModel(MonkeysService monkeysService)
         {
+            this.monkeysService = monkeysService;
             Monkeys = new ObservableCollection<Monkey>();
             NavigateMonkeysView = new Command(async () => await Navigate());
             LoadMonkeysCommand = new Command(async () => await LoadMonkeys());
