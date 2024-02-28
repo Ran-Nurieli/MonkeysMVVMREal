@@ -4,21 +4,24 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MonkeysMVVM.Views"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:MonkeysMVVM.ViewModels"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MonkeysPage}"
-        Route="MainPage" />
-
-    <TabBar Shell.TabBarBackgroundColor="Green">
-        <ShellContent
-            ContentTemplate="{DataTemplate local:MonkeysPage}"
-            Icon="home.png"
-            Route="HomePage" />
+    <!--<TabBar Shell.TabBarUnselectedColor="Black">
         <Tab Icon="search.png">
-            <ShellContent Title="סינון" ContentTemplate="{DataTemplate local:MonkeysPage}" />
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MonkeysPage}"
+                Icon="home.png"
+                Route="HomePage" />
+            <ShellContent
+                Title="סינון"
+                ContentTemplate="{DataTemplate local:FindMonkeyByLocationPage}"
+                Route="FindMonkeyByLocationPage" />
         </Tab>
 
-    </TabBar>
+    </TabBar>-->
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent ContentTemplate="{DataTemplate local:MonkeysPage}" Route="MainPage" />
+        <ShellContent Title="סינון" ContentTemplate="{DataTemplate local:FindMonkeyByLocationPage}" />
+    </FlyoutItem>
 </Shell>
